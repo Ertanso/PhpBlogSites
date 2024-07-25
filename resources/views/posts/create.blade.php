@@ -1,24 +1,21 @@
 <!-- resources/views/posts/create.blade.php -->
+<x-app-layout>
+    <div class="container mt-5">
+        <h1 class="mb-4" style="color: white">Create Post</h1>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post</title>
-</head>
-<body>
-    <h1>Create Post</h1>
+        <form action="{{ route('posts.store') }}" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="title" class="form-label" style="color: white">Title:</label>
+                <input type="text" class="form-control" id="title" name="title"  required>
+            </div>
 
-    <form action="{{ route('posts.store') }}" method="POST">
-        @csrf
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
+            <div class="mb-3">
+                <label for="body" class="form-label" style="color: white">Body:</label>
+                <textarea class="form-control" id="body" name="body" rows="5" required></textarea>
+            </div>
 
-        <label for="body">Body:</label>
-        <textarea id="body" name="body" required></textarea>
-
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+            <button type="submit" class="btn btn-primary" style="color: white">Submit</button>
+        </form>
+    </div>
+</x-app-layout>
