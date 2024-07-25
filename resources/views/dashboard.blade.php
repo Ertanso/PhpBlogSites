@@ -13,5 +13,21 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <img src="https://www.timsahajans.com.tr/data/uploads/Blog-Nedir-Cesitleri-Nelerdir.jpg" style="height: 200px">
+                    <h2> Blog Test </h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias vel odio veniam fuga sint itaque, accusantium corrupti molestias cumque. Harum facere unde voluptas. Inventore ullam laborum corporis consectetur deleniti fugit.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            
+    </div>
     </div>
 </x-app-layout>
