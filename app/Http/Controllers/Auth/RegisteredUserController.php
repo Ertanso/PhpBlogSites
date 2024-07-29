@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-
+use App\Http\Requests\RegisterRequest;
 class RegisteredUserController extends Controller
 {
     /**
@@ -27,6 +27,8 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+    
+     /*
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -46,5 +48,25 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
+    } */
+
+    public function store(RegisterRequest $request): RedirectResponse
+    {
+        // Doğrulanmış verileri almak için $request->validated() kullanabilirsiniz
+        $validated = $request->validated();
+
+        //dd($validated);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($validated['password']),
+        ]);
+
+        event(new Registered($user));
+
+        Auth::login($user);
+
+        return redirect(route('dashboard'));
     }
 }
